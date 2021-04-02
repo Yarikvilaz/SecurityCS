@@ -56,7 +56,7 @@ def distribute_(parameter, K):
 
     if parameter == 'load':
         for i in range(len(lab2.P)):
-            newP.append(1 - math.pow(1 - lab2.P[i], K1 + 1))
+            newP.append(1 - math.pow(1 - lab2.P[i], K + 1))
             newQ.append(1 - newP[i])
     elif parameter == 'unload':
         for i in range(len(lab2.P)):
