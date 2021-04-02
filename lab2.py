@@ -78,21 +78,41 @@ graph = {
     6: [],
     7: []
 }
+
+# P = [0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.92, 0.94]       # sample option
+# graph = {
+#     1: [2, 3],
+#     2: [4, 5],
+#     3: [4, 6, 8],
+#     4: [5, 6, 8],
+#     5: [6, 7],
+#     6: [7, 8],
+#     7: [],
+#     8: []
+# }
+
+
 scheme = change_to_scheme(graph)
 scheme_size = len(scheme)
 
 ways = []
 ways1 = dfs(scheme, 0)
-ways2 = dfs(scheme, 1)
+ways2 = dfs(scheme, 1)    # you should comment on this line if the graph starts with one method
 ways.extend(ways1)
-ways.extend(ways2)
+ways.extend(ways2)    # you should comment on this line if the graph starts with one method
 
-print("All ways:")
-for i, j in zip(dfs(graph, start=1), dfs(graph, start=2)):
-    print(*i, " - ", *j)
 
 pos_var = possible_variants(scheme_size)
 work_path = workable_pathes(ways, pos_var)
 
 p_system = get_probability(work_path, scheme_size)
-print("\nProbability: ", p_system)
+
+
+if __name__ == '__main__':
+    print("Psystem: ", p_system)
+    print("All ways:")
+    # for i in  dfs(graph, start=1):
+    #     print(*i)
+
+    for i, j in zip(dfs(graph, start=1), dfs(graph, start=2)):    # you should comment on this line if the graph starts with one method
+        print(*i, " - ", *j)                          # you should comment on this line if the graph starts with one method
